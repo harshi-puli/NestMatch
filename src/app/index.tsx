@@ -1,98 +1,64 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+type Screen = 'discover' | 'matches' | 'profile' | 'chat';
+type Home = { title: string; area: string; rent: string; detail: string; photo: string; fit: string };
+const homes: Home[] = [
+  { title: 'A sunny room in a sweet shared home', area: 'Silver Lake, Los Angeles', rent: '$1,250', detail: 'Private room · 3 housemates · Move in Jun 1', photo: 'photo-1600210492486-724fe5c67fb0', fit: '92% your vibe' },
+  { title: 'A calm little place near everything', area: 'Echo Park, Los Angeles', rent: '$1,380', detail: 'Private room · 2 housemates · Move in Jul 1', photo: 'photo-1600607687939-ce8a6c25118c', fit: '88% your vibe' },
+  { title: 'Room to grow (and keep plants)', area: 'Los Feliz, Los Angeles', rent: '$1,175', detail: 'Private room · 3 housemates · Move in Jun 15', photo: 'photo-1600566753086-00f18fb6b3ea', fit: '85% your vibe' },
+];
+const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=85`;
 
 export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+  const [screen, setScreen] = useState<Screen>('discover');
+  const [index, setIndex] = useState(0);
+  const [likes, setLikes] = useState<Home[]>([]);
+  const [toast, setToast] = useState(false);
+  const [name, setName] = useState('Alex Morgan');
+  const [about, setAbout] = useState('Easygoing, tidy, and always down to share a meal. Looking for a place that feels like home.');
+  const [draft, setDraft] = useState('');
+  const [messages, setMessages] = useState(['Hi Alex! We loved your profile. The room is still available if you’d like to come by this week.']);
+  const home = homes[index % homes.length];
+  const chosen = likes[0] ?? homes[0];
+  const navigate = (to: Screen) => setScreen(to);
+  const swipe = (like: boolean) => {
+    if (like) {
+      setLikes((current) => current.some((item) => item.title === home.title) ? current : [...current, home]);
+      setToast(true);
+    }
+    setIndex((current) => current + 1);
+  };
+  const send = () => {
+    if (!draft.trim()) return;
+    setMessages((current) => [...current, draft.trim()]);
+    setDraft('');
+  };
+  const navItems = [{ id: 'discover' as const, label: 'Discover', icon: '⌕' }, { id: 'matches' as const, label: 'Matches', icon: '♡' }, { id: 'profile' as const, label: 'My profile', icon: '◯' }];
+  const nav = (mobile = false) => navItems.map((item) => <Pressable key={item.id} onPress={() => navigate(item.id)} style={mobile ? styles.mobileNavItem : [styles.navItem, screen === item.id && styles.navActive]}><Text style={mobile ? [styles.mobileNavIcon, screen === item.id && styles.selected] : [styles.navIcon, screen === item.id && styles.selected]}>{item.icon}</Text><Text style={mobile ? [styles.mobileNavLabel, screen === item.id && styles.selected] : [styles.navLabel, screen === item.id && styles.selected]}>{item.label}</Text>{!mobile && item.id === 'matches' && !!likes.length && <Text style={styles.count}>{likes.length}</Text>}</Pressable>);
+  const pageHeader = (eyebrow: string, title: string, subtitle: string) => <View style={styles.heading}><View><Text style={styles.eyebrow}>{eyebrow}</Text><Text style={styles.title}>{title}</Text><Text style={styles.subtitle}>{subtitle}</Text></View>{screen === 'discover' && <View style={styles.location}><Text style={styles.locationPin}>⌖</Text><Text style={styles.locationText}>Los Angeles, CA</Text><Text style={styles.chevron}>⌄</Text></View>}</View>;
+  const brand = <View style={styles.brand}><View style={styles.brandMark}><Text style={styles.brandLetter}>n</Text></View><Text style={styles.brandName}>nestmatch</Text></View>;
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
+  return <View style={styles.app}>
+    <View style={styles.sidebar}>{brand}<Text style={styles.sidebarCaption}>YOUR NEXT CHAPTER STARTS HERE</Text><View style={styles.nav}>{nav()}</View><View style={styles.sideBottom}><View style={styles.sideProfile}><View style={styles.avatar}><Text style={styles.avatarLetter}>A</Text></View><View><Text style={styles.sideName}>{name || 'Your profile'}</Text><Text style={styles.sideSub}>Profile · 80% complete</Text></View><Text style={styles.more}>···</Text></View><Text style={styles.sideFooter}>A better way to find home.</Text></View></View>
+    <ScrollView style={styles.content} contentContainerStyle={styles.inner}>
+      <View style={styles.mobileTop}>{brand}<Pressable style={styles.avatar} onPress={() => navigate('profile')}><Text style={styles.avatarLetter}>A</Text></Pressable></View>
+      {screen === 'discover' && <>{pageHeader('YOUR NEXT CHAPTER', 'Find your kind of place.', 'Good homes start with the right people. Let’s find yours.')}<View style={styles.discoverLayout}><View style={styles.cardColumn}><View style={styles.cardMeta}><Text style={styles.cardEyebrow}>A PLACE YOU MIGHT LOVE</Text><Text style={styles.cardEyebrow}>{index % homes.length + 1} <Text style={styles.muted}>/ {homes.length}</Text></Text></View><View style={styles.listingCard}><View style={[styles.listingPhoto, { backgroundImage: `url(${photo(home.photo)})` }]}><View style={styles.photoTop}><Text style={styles.fitPill}>✦ &nbsp;{home.fit}</Text><Pressable style={styles.bookmark} onPress={() => swipe(true)}><Text style={styles.bookmarkText}>♡</Text></Pressable></View><View style={styles.photoBottom}><Text style={styles.justListed}>JUST LISTED</Text><Text style={styles.photoNumber}>01 / 05</Text></View></View><View style={styles.listingInfo}><View style={styles.listingTitleRow}><View style={styles.flex}><Text style={styles.listingTitle}>{home.title}</Text><Text style={styles.listingArea}>⌖ &nbsp;{home.area}</Text></View><Text style={styles.price}>{home.rent}<Text style={styles.priceUnit}> / mo</Text></Text></View><Text style={styles.detail}>▣ &nbsp; {home.detail}</Text><View style={styles.perks}><Text style={styles.perk}>☀️ Bright & airy</Text><Text style={styles.perk}>🌿 Plant-friendly</Text><Text style={styles.perk}>☕ Coffee nearby</Text></View></View></View><View style={styles.actions}><Pressable accessibilityLabel="Pass on this place" onPress={() => swipe(false)} style={styles.actionCircle}><Text style={styles.pass}>×</Text></Pressable><Pressable accessibilityLabel="Like this place" onPress={() => swipe(true)} style={styles.likeButton}><Text style={styles.likeHeart}>♡</Text><Text style={styles.likeText}>I’m interested</Text></Pressable><Pressable accessibilityLabel="Super like this place" onPress={() => swipe(true)} style={styles.actionCircle}><Text style={styles.star}>✦</Text></Pressable></View><Text style={styles.swipeHint}>A little yes can lead to a lot of home.</Text></View><View style={styles.rightColumn}><View style={styles.profileCard}><View style={styles.cardMeta}><Text style={styles.cardEyebrow}>YOUR PROFILE</Text><Pressable onPress={() => navigate('profile')}><Text style={styles.edit}>Edit ↗</Text></Pressable></View><View style={styles.profileMini}><View style={styles.personIcon}><Text style={styles.personEmoji}>☺</Text></View><View><Text style={styles.profileName}>{name}</Text><Text style={styles.profileSub}>Looking for a room in LA</Text></View></View><Text style={styles.profileQuote}>“{about}”</Text><View style={styles.barTrack}><View style={styles.barFill}/></View><Text style={styles.profileSub}>Profile strength · 80%</Text></View><View style={styles.tip}><Text style={styles.tipIcon}>✳</Text><View><Text style={styles.tipTitle}>A little tip</Text><Text style={styles.tipText}>Profiles with a few photos get more replies. Add yours when you’re ready.</Text><Pressable onPress={() => navigate('profile')}><Text style={styles.edit}>Complete your profile →</Text></Pressable></View></View><View style={styles.quoteCard}><Text style={styles.quoteMark}>“</Text><Text style={styles.quoteText}>The best roommates make a place feel like home.</Text><Text style={styles.quoteCredit}>THE NESTMATCH WAY</Text></View></View></View></>}
+      {screen === 'matches' && <>{pageHeader('GOOD THINGS ARE GROWING', 'Your matches.', 'Places that caught your eye. Start a conversation whenever you’re ready.')}{likes.length ? <View style={styles.matches}>{likes.map((item) => <Pressable key={item.title} style={styles.matchCard} onPress={() => navigate('chat')}><View style={[styles.matchPhoto, { backgroundImage: `url(${photo(item.photo)})` }]}><Text style={styles.fitPill}>✦ &nbsp;A GOOD FIT</Text></View><View style={styles.matchInfo}><Text style={styles.matchTitle}>{item.title}</Text><Text style={styles.profileSub}>{item.area}</Text><View style={styles.matchBottom}><Text style={styles.matchRent}>{item.rent} / month</Text><Text style={styles.messagePill}>Say hello →</Text></View></View></Pressable>)}<View style={styles.matchNote}><Text style={styles.tipIcon}>✿</Text><Text style={styles.quoteText}>Your next favorite place could be one swipe away.</Text><Pressable onPress={() => navigate('discover')}><Text style={styles.edit}>Keep exploring →</Text></Pressable></View></View> : <View style={styles.empty}><Text style={styles.emptyHeart}>♡</Text><Text style={styles.emptyTitle}>Your story starts with a yes.</Text><Text style={styles.emptyText}>When a place feels right, tap “I’m interested” and it’ll show up here.</Text><Pressable onPress={() => navigate('discover')} style={styles.primary}><Text style={styles.primaryText}>Explore places →</Text></Pressable></View>}</>}
+      {screen === 'profile' && <>{pageHeader('A LITTLE ABOUT YOU', 'Your profile.', 'Help future housemates get a feel for the person behind the room search.')}<View style={styles.form}><View style={styles.formTop}><View style={styles.formAvatar}><Text style={styles.avatarLetter}>A</Text></View><View><Text style={styles.formTitle}>Let’s make this feel like you.</Text><Text style={styles.profileSub}>A thoughtful profile makes a lovely first hello.</Text></View></View><Text style={styles.fieldLabel}>YOUR NAME</Text><TextInput value={name} onChangeText={setName} placeholder="What should we call you?" style={styles.input}/><Text style={styles.fieldLabel}>A FEW WORDS ABOUT YOU</Text><TextInput multiline value={about} onChangeText={setAbout} placeholder="What makes a place feel like home?" style={[styles.input, styles.textarea]}/><Text style={styles.fieldLabel}>WHAT MATTERS IN A HOME?</Text><View style={styles.perks}><Text style={styles.perk}>☀️ Natural light</Text><Text style={styles.perk}>🌿 Plants</Text><Text style={styles.perk}>🍳 Shared meals</Text><Text style={styles.perk}>＋ Add one</Text></View><Pressable onPress={() => navigate('discover')} style={styles.primary}><Text style={styles.primaryText}>Save my profile →</Text></Pressable></View></>}
+      {screen === 'chat' && <>{pageHeader('A GOOD THING STARTS HERE', 'Say hello.', 'A simple conversation is the best way to see if it feels right.')}<View style={styles.chat}><View style={styles.chatHeader}><View style={[styles.chatPhoto, { backgroundImage: `url(${photo(chosen.photo)})` }]} /><View style={styles.flex}><Text style={styles.profileName}>{chosen.title}</Text><Text style={styles.profileSub}>{chosen.area} · {chosen.rent}</Text></View><Pressable onPress={() => navigate('matches')}><Text style={styles.edit}>← Matches</Text></Pressable></View><View style={styles.chatBody}><Text style={styles.todayLabel}>TODAY</Text>{messages.map((item, i) => <View key={`${i}-${item}`} style={[styles.bubble, i > 0 && styles.mine]}><Text style={[styles.bubbleText, i > 0 && styles.mineText]}>{item}</Text><Text style={styles.bubbleTime}>{i === 0 ? 'Jamie · 10:24 am' : 'Just now'}</Text></View>)}</View><View style={styles.composer}><TextInput value={draft} onChangeText={setDraft} onSubmitEditing={send} placeholder="Write a little hello…" style={styles.messageInput}/><Pressable onPress={send} style={styles.send}><Text style={styles.sendText}>Send ↑</Text></Pressable></View><Text style={styles.chatFootnote}>A little kindness goes a long way.</Text></View></>}
+      <Text style={styles.footer}>MADE FOR FINDING YOUR PEOPLE &nbsp;·&nbsp; NESTMATCH</Text>
+    </ScrollView><View style={styles.mobileNav}>{nav(true)}</View>
+    {toast && <View style={styles.toast}><Text style={styles.toastHeart}>♡</Text><View style={styles.flex}><Text style={styles.toastTitle}>A new little possibility!</Text><Text style={styles.toastBody}>You’re interested in {home.title.toLowerCase()}.</Text></View><Pressable onPress={() => { setToast(false); navigate('matches'); }}><Text style={styles.edit}>View →</Text></Pressable><Pressable onPress={() => setToast(false)}><Text style={styles.close}>×</Text></Pressable></View>}
+  </View>;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
+  app: { flex: 1, minHeight: '100vh', flexDirection: 'row', backgroundColor: '#f8f7f2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' },
+  sidebar: { width: 248, backgroundColor: '#fbfaf6', borderRightWidth: 1, borderRightColor: '#e8e5dc', paddingHorizontal: 25, paddingTop: 31, paddingBottom: 22 },
+  brand: { flexDirection: 'row', alignItems: 'center', gap: 9 }, brandMark: { width: 30, height: 30, borderRadius: 10, backgroundColor: '#d86c52', alignItems: 'center', justifyContent: 'center', transform: [{ rotate: '-7deg' }] }, brandLetter: { color: '#fffaf2', fontSize: 23, lineHeight: 27, fontWeight: '800' }, brandName: { color: '#303128', fontFamily: 'Georgia, serif', fontSize: 21, letterSpacing: -1.1 }, sidebarCaption: { color: '#aaa79c', fontSize: 9, letterSpacing: 1.3, fontWeight: '700', marginTop: 52, marginBottom: 17 }, nav: { gap: 5 }, navItem: { minHeight: 44, borderRadius: 9, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', gap: 12 }, navActive: { backgroundColor: '#f0eee6' }, navIcon: { width: 20, color: '#8d8c82', fontSize: 20, textAlign: 'center' }, navLabel: { color: '#696960', fontSize: 13 }, selected: { color: '#d86c52', fontWeight: '600' }, count: { marginLeft: 'auto', borderRadius: 12, backgroundColor: '#d86c52', color: '#fff', fontSize: 10, paddingHorizontal: 7, paddingVertical: 2, overflow: 'hidden' }, sideBottom: { marginTop: 'auto' }, sideProfile: { flexDirection: 'row', alignItems: 'center', gap: 10, borderTopWidth: 1, borderTopColor: '#e8e5dc', paddingTop: 17 }, avatar: { width: 34, height: 34, borderRadius: 20, backgroundColor: '#e9d3c1', alignItems: 'center', justifyContent: 'center' }, avatarLetter: { color: '#7d5441', fontWeight: '700' }, sideName: { fontSize: 12, fontWeight: '600', color: '#393a32' }, sideSub: { fontSize: 10, color: '#9a988e', marginTop: 3 }, more: { marginLeft: 'auto', color: '#89877d', fontSize: 20 }, sideFooter: { color: '#aaa79c', fontFamily: 'Georgia, serif', fontSize: 11, marginTop: 22 },
+  content: { flex: 1 }, inner: { maxWidth: 1180, width: '100%', alignSelf: 'center', paddingHorizontal: 54, paddingTop: 47, paddingBottom: 35 }, heading: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 30 }, eyebrow: { color: '#bb725c', fontSize: 9, letterSpacing: 1.55, fontWeight: '700', marginBottom: 9 }, title: { fontFamily: 'Georgia, serif', fontSize: 35, lineHeight: 41, color: '#292a24', letterSpacing: -1.1 }, subtitle: { color: '#77776d', fontSize: 13, lineHeight: 20, marginTop: 6, maxWidth: 490 }, location: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 1, borderColor: '#e7e3da', borderRadius: 20, paddingVertical: 9, paddingHorizontal: 12, marginBottom: 3 }, locationPin: { color: '#d27559', fontSize: 16 }, locationText: { color: '#626158', fontSize: 11 }, chevron: { color: '#908d82', fontSize: 14, marginLeft: 5 }, discoverLayout: { flexDirection: 'row', gap: 34, alignItems: 'flex-start' }, cardColumn: { width: '58%', maxWidth: 590 }, cardMeta: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10, alignItems: 'center' }, cardEyebrow: { color: '#97958b', fontSize: 9, letterSpacing: 1.3, fontWeight: '700' }, muted: { color: '#c1beb4' }, listingCard: { borderRadius: 14, overflow: 'hidden', backgroundColor: '#fff', borderWidth: 1, borderColor: '#ece9e1', shadowColor: '#3c3629', shadowOpacity: .07, shadowRadius: 18, shadowOffset: { width: 0, height: 7 } }, listingPhoto: { height: 300, backgroundSize: 'cover', backgroundPosition: 'center', justifyContent: 'space-between', padding: 16 }, photoTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }, fitPill: { color: '#4c573f', backgroundColor: 'rgba(249,248,239,.94)', overflow: 'hidden', borderRadius: 15, paddingVertical: 7, paddingHorizontal: 10, fontSize: 10, fontWeight: '600' }, bookmark: { height: 33, width: 33, borderRadius: 18, backgroundColor: 'rgba(255,255,255,.94)', alignItems: 'center', justifyContent: 'center' }, bookmarkText: { fontSize: 19, color: '#66584f' }, photoBottom: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, justListed: { color: '#fff', backgroundColor: 'rgba(38,38,29,.43)', overflow: 'hidden', borderRadius: 4, paddingVertical: 5, paddingHorizontal: 8, fontSize: 8, letterSpacing: 1.1, fontWeight: '700' }, photoNumber: { color: '#fff', backgroundColor: 'rgba(38,38,29,.48)', borderRadius: 14, overflow: 'hidden', paddingVertical: 5, paddingHorizontal: 9, fontSize: 9 }, listingInfo: { paddingHorizontal: 20, paddingTop: 17, paddingBottom: 16 }, listingTitleRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 }, flex: { flex: 1 }, listingTitle: { fontFamily: 'Georgia, serif', color: '#32332c', fontSize: 18, letterSpacing: -.3 }, listingArea: { color: '#87867b', fontSize: 11, marginTop: 6 }, price: { color: '#51594a', fontSize: 15, fontWeight: '700', marginTop: 2 }, priceUnit: { color: '#99988d', fontSize: 9, fontWeight: '400' }, detail: { color: '#77776d', fontSize: 10, marginTop: 15 }, perks: { flexDirection: 'row', gap: 7, marginTop: 13, flexWrap: 'wrap' }, perk: { color: '#6a6e5e', backgroundColor: '#f3f2ec', fontSize: 9, borderRadius: 14, overflow: 'hidden', paddingVertical: 6, paddingHorizontal: 8 }, actions: { flexDirection: 'row', justifyContent: 'center', gap: 14, alignItems: 'center', marginTop: 17 }, actionCircle: { width: 44, height: 44, borderRadius: 24, backgroundColor: '#fff', borderColor: '#eeeae1', borderWidth: 1, alignItems: 'center', justifyContent: 'center' }, pass: { color: '#9c8175', fontSize: 25, lineHeight: 29 }, likeButton: { height: 46, backgroundColor: '#d87358', borderRadius: 24, paddingHorizontal: 25, flexDirection: 'row', alignItems: 'center', gap: 9, shadowColor: '#c56850', shadowOpacity: .2, shadowRadius: 8, shadowOffset: { width: 0, height: 4 } }, likeHeart: { color: '#fff', fontSize: 17 }, likeText: { color: '#fff', fontSize: 12, fontWeight: '600' }, star: { color: '#d79662', fontSize: 19 }, swipeHint: { textAlign: 'center', color: '#aaa79e', fontFamily: 'Georgia, serif', fontSize: 11, marginTop: 11 }, rightColumn: { flex: 1, minWidth: 230, gap: 14, paddingTop: 1 }, profileCard: { padding: 17, borderRadius: 12, borderWidth: 1, borderColor: '#ebe8df', backgroundColor: '#fffefa' }, edit: { color: '#bd725c', fontSize: 10 }, profileMini: { flexDirection: 'row', alignItems: 'center', gap: 11, marginTop: 15 }, personIcon: { width: 43, height: 43, borderRadius: 23, backgroundColor: '#e7d9cb', alignItems: 'center', justifyContent: 'center' }, personEmoji: { color: '#805844', fontSize: 21 }, profileName: { color: '#383931', fontFamily: 'Georgia, serif', fontSize: 15 }, profileSub: { color: '#99968b', fontSize: 9, marginTop: 4 }, profileQuote: { color: '#737268', fontFamily: 'Georgia, serif', fontSize: 11, lineHeight: 17, marginTop: 13 }, barTrack: { height: 4, backgroundColor: '#eeece5', borderRadius: 3, marginTop: 15, marginBottom: 5 }, barFill: { width: '80%', height: 4, backgroundColor: '#d37a60', borderRadius: 3 }, tip: { flexDirection: 'row', gap: 11, padding: 15, backgroundColor: '#f0eee5', borderRadius: 11 }, tipIcon: { color: '#b4805e', fontSize: 18 }, tipTitle: { color: '#4d4b40', fontFamily: 'Georgia, serif', fontSize: 13 }, tipText: { color: '#77756a', fontSize: 10, lineHeight: 15, marginTop: 5, marginBottom: 8 }, quoteCard: { minHeight: 104, borderRadius: 11, backgroundColor: '#e9ede5', padding: 15 }, quoteMark: { color: '#8b9a80', fontFamily: 'Georgia, serif', fontSize: 30, lineHeight: 28 }, quoteText: { color: '#56604f', fontFamily: 'Georgia, serif', fontSize: 13, maxWidth: 190, lineHeight: 18 }, quoteCredit: { color: '#87907e', fontSize: 8, letterSpacing: 1.1, marginTop: 8 },
+  matches: { flexDirection: 'row', flexWrap: 'wrap', gap: 17 }, matchCard: { width: 270, borderRadius: 12, overflow: 'hidden', backgroundColor: '#fff', borderWidth: 1, borderColor: '#eae7df' }, matchPhoto: { height: 160, backgroundSize: 'cover', backgroundPosition: 'center', justifyContent: 'flex-end', padding: 11 }, matchInfo: { padding: 14 }, matchTitle: { color: '#35362e', fontFamily: 'Georgia, serif', fontSize: 16 }, matchBottom: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 13 }, matchRent: { color: '#5a6350', fontSize: 11, fontWeight: '600' }, messagePill: { color: '#fff', backgroundColor: '#d87358', overflow: 'hidden', paddingVertical: 7, paddingHorizontal: 10, borderRadius: 16, fontSize: 9, fontWeight: '600' }, matchNote: { maxWidth: 240, padding: 17, justifyContent: 'center' }, empty: { alignSelf: 'flex-start', alignItems: 'center', backgroundColor: '#fffefa', borderWidth: 1, borderColor: '#ebe8df', borderRadius: 13, padding: 34, maxWidth: 430, marginTop: 3 }, emptyHeart: { color: '#d77a60', fontSize: 34 }, emptyTitle: { color: '#34352e', fontFamily: 'Georgia, serif', fontSize: 21, marginTop: 10 }, emptyText: { color: '#858277', fontSize: 12, lineHeight: 19, textAlign: 'center', maxWidth: 300, marginTop: 8 }, primary: { backgroundColor: '#d87358', paddingVertical: 12, paddingHorizontal: 18, borderRadius: 22, marginTop: 20, alignSelf: 'flex-start' }, primaryText: { color: '#fff', fontSize: 11, fontWeight: '600' }, form: { maxWidth: 650, width: '100%', backgroundColor: '#fffefa', borderRadius: 13, borderWidth: 1, borderColor: '#ebe8df', padding: 25 }, formTop: { flexDirection: 'row', alignItems: 'center', gap: 15, marginBottom: 24 }, formAvatar: { width: 62, height: 62, borderRadius: 32, backgroundColor: '#e9d3c1', alignItems: 'center', justifyContent: 'center' }, formTitle: { color: '#36372f', fontFamily: 'Georgia, serif', fontSize: 18 }, fieldLabel: { color: '#88867c', fontSize: 9, letterSpacing: 1.1, fontWeight: '700', marginBottom: 8, marginTop: 14 }, input: { minHeight: 42, borderWidth: 1, borderColor: '#e8e5dc', borderRadius: 7, paddingHorizontal: 12, paddingVertical: 10, fontSize: 12, color: '#42433b', backgroundColor: '#fff' }, textarea: { minHeight: 95, textAlignVertical: 'top' },
+  chat: { maxWidth: 760, width: '100%', backgroundColor: '#fffefa', borderWidth: 1, borderColor: '#ebe8df', borderRadius: 12, overflow: 'hidden' }, chatHeader: { minHeight: 75, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, borderBottomWidth: 1, borderBottomColor: '#eeece5' }, chatPhoto: { width: 44, height: 44, borderRadius: 8, backgroundSize: 'cover', backgroundPosition: 'center' }, chatBody: { minHeight: 270, padding: 22, gap: 13 }, todayLabel: { alignSelf: 'center', color: '#aaa79d', fontSize: 8, letterSpacing: 1.1, marginBottom: 3 }, bubble: { alignSelf: 'flex-start', backgroundColor: '#f0eee7', borderTopRightRadius: 14, borderBottomRightRadius: 14, borderBottomLeftRadius: 14, maxWidth: '80%', padding: 12 }, mine: { alignSelf: 'flex-end', backgroundColor: '#d87358', borderTopLeftRadius: 14, borderTopRightRadius: 3 }, bubbleText: { color: '#5e5d54', fontSize: 11, lineHeight: 17 }, mineText: { color: '#fff' }, bubbleTime: { color: '#a09d93', fontSize: 8, marginTop: 6 }, composer: { flexDirection: 'row', borderTopWidth: 1, borderTopColor: '#eeece5', padding: 12, gap: 9 }, messageInput: { flex: 1, minHeight: 38, borderRadius: 20, backgroundColor: '#f5f4ef', paddingHorizontal: 14, fontSize: 11, color: '#45463e' }, send: { backgroundColor: '#d87358', borderRadius: 20, justifyContent: 'center', paddingHorizontal: 17 }, sendText: { color: '#fff', fontSize: 10, fontWeight: '600' }, chatFootnote: { color: '#aaa79e', fontStyle: 'italic', fontSize: 10, textAlign: 'center', marginBottom: 13 },
+  footer: { color: '#b0ada3', textAlign: 'center', fontSize: 8, letterSpacing: 1.2, marginTop: 33 }, mobileTop: { display: 'none' }, mobileNav: { display: 'none' }, mobileNavItem: { alignItems: 'center', gap: 4 }, mobileNavIcon: { color: '#8a887e', fontSize: 22 }, mobileNavLabel: { color: '#858379', fontSize: 9 }, toast: { position: 'absolute', right: 24, top: 20, maxWidth: 390, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, backgroundColor: '#fffefa', borderRadius: 12, borderWidth: 1, borderColor: '#e8e3d8', shadowColor: '#333', shadowOpacity: .13, shadowRadius: 15, shadowOffset: { width: 0, height: 7 } }, toastHeart: { color: '#d87358', fontSize: 24 }, toastTitle: { color: '#3d3e36', fontFamily: 'Georgia, serif', fontSize: 13 }, toastBody: { color: '#87857b', fontSize: 9, marginTop: 4 }, close: { color: '#aaa79d', fontSize: 18, marginLeft: 4 },
 });
