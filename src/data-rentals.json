@@ -9,7 +9,10 @@
     "address": "1718 Ximeno Ave",
     "zipcode": "90815",
     "description": "2 BED 1 BATH 1Fl x950",
-    "url": "https://www.zillow.com/apartments/long-beach-ca/the-circle-apartments-at-long-beach/5XkKJF/?r=96247#unit-463898061"
+    "url": "https://www.zillow.com/apartments/long-beach-ca/the-circle-apartments-at-long-beach/5XkKJF/?r=96247#unit-463898061",
+    "sqft": "1050",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "460753966",
@@ -21,7 +24,10 @@
     "address": "1145-1157 Edgeworth Ave",
     "zipcode": "94015",
     "description": "Spacious 1- 3 bedroom apartment homes available. These well-built units feature concrete construction between apartments, providing enhanced sound insulation and added privacy. Layouts offer generous living space suitable for a variety of living needs. A shared on-site laundry room is available.  *One covered parking spot and one storage unit included in rent.* Convenient access to Daly City BART, SamTrans bus lines, and major freeways including I-280 and Highway 1 allows for easy connectivity throughout the Bay Area. Pet friendly: $0 pet fees/$0 pet rent/$0 pet deposit -12 month contract -Gas and electric: Paid by tenant -No smoking -1 small dog/cat, up to 40 pounds -Tenant responsible for all utilities",
-    "url": "https://www.zillow.com/apartments/daly-city-ca/the-edgeworth-apartments/Cpswdw/?r=97506#unit-460753966"
+    "url": "https://www.zillow.com/apartments/daly-city-ca/the-edgeworth-apartments/Cpswdw/?r=97506#unit-460753966",
+    "sqft": "",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "2083133691",
@@ -33,7 +39,10 @@
     "address": "1000 Allison Dr",
     "zipcode": "95687",
     "description": "\"Every room's design is intentional at River Oaks Apartment Homes. We've created a living space that delivers an organic, modern look so you can cultivate your pride of place. You'll find a number of pet-friendly 1, 2 & 3 bedroom apartment homes to choose from. Each layout features an interior space that encourages you to reset and refocus. Every day. This is the Vacaville, California, refuge you're seeking.\"   ADDITIONAL FIXED CHARGES NOT INCLUDED IN TOTAL MONTHLY COST OF RENT Application Fee: $35/online, $40/paper (fixed) Hold Deposit: $100 (fixed & refundable) Security Deposit: $400-$600 (on approved credit, fixed & refundable) Pet Rent: $50/month, per pet (fixed) Pet Deposit: $300 per pet (fixed & refundable) Pet Waste Management Service: $65 (fixed) Late Fee: $50 NSF Free: $25 for 1st occurrence & $35 for each occurrence after OPTIONAL RENTABLE ITEM CHARGES: Garage: $175/month",
-    "url": "https://www.zillow.com/apartments/vacaville-ca/river-oaks-apartment-homes/5Xk5cN/#unit-2083133691"
+    "url": "https://www.zillow.com/apartments/vacaville-ca/river-oaks-apartment-homes/5Xk5cN/#unit-2083133691",
+    "sqft": "740",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "2060607620",
@@ -45,7 +54,10 @@
     "address": "1480 S Highland Ave",
     "zipcode": "92832",
     "description": "Rose Pointe has been designed for an elegant and luxurious lifestyle. Our community offers you a haven away from the stresses of urban life while being close to all of the big city conveniences. Rose Pointe is located in beautiful Fullerton California and is very close to the heart of our downtown area where you can enjoy an array of quaint restaurants, specialty cafes, shop, schools, colleges, lush green parks, and peaceful walking trails. Enjoying the apartments beautiful surroundings and taking a dip in our sparkling swimming pool is sure to help you wind down and relax after long day at work! We are absolutely sure you'll enjoy making us your new home.    Our friendly management staff is always more than willing to assist you with any questions about touring, move-in information, maintenance requests, or other inquiries you may have while living on the property. We thank you for your interest in our community and invite you to come down today and tour one of our beautiful apartment homes! ** EV Charging Available On Site Deposit: Studio - $600 1 Bed - $550 2 Bed - $600 2 Bed/2 Bath - $700 Renter is responsible for electricity, water, sewer and trash.",
-    "url": "https://www.zillow.com/apartments/fullerton-ca/rose-pointe/5XjTPN/#unit-2060607620"
+    "url": "https://www.zillow.com/apartments/fullerton-ca/rose-pointe/5XjTPN/#unit-2060607620",
+    "sqft": "835",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "456044799",
@@ -57,7 +69,10 @@
     "address": "3320 Montgomery Dr",
     "zipcode": "95054",
     "description": "Self-Guided Tours Only. Appointment Required. Be the first to live in a brand new spacious home with smart-tech features and large, private patios or balconies. With luxury fitness centers, four resort-style pools, outdoor recreation options, and world-class retail on-site, there's so much more than home to love when you choose Santa Clara Square. Rental rates, availability, lease terms, deposits, apartment features, amenities, and specials are subject to change without notice. Floor plans and square footages displayed are approximations, may be based on stud-to-stud measurements, and may vary between individual units. Quoted prices are for base rent only and do not include other fees such as application fee (one-time, $45), security deposit (one-time, refundable, amount varies), utility billing fee (not to exceed $5.55/month, Conservice), and utilities (monthly, cost varies). Deposits may fluctuate based on credit, rental history, income, and/or other qualifying standards. Residents are required to obtain and maintain renters insurance (certain exceptions apply). Pricing valid for new residents only, and may vary based on move-in date and lease term. Minimum lease terms and occupancy guidelines may apply. Leasing subject to credit approval, a satisfactory rental application and execution of a lease agreement.",
-    "url": "https://www.zillow.com/apartments/santa-clara-ca/santa-clara-square-apartment-homes/CkBDWB/#unit-456044799"
+    "url": "https://www.zillow.com/apartments/santa-clara-ca/santa-clara-square-apartment-homes/CkBDWB/#unit-456044799",
+    "sqft": "1108",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "460489187",
@@ -69,7 +84,10 @@
     "address": "974 S Catalina St",
     "zipcode": "90006",
     "description": "*Please call or text to schedule a viewing. The list of \"viewing time\" in zillow is there because zillow makes you put something. But there are options outside of what's listed there. Spacious Remodeled Apartment One Month FREE Rent! Sign a lease and move in by February 16th, 2026 to receive one month FREE rent! Enjoy comfort, convenience, and value in this beautifully updated apartment featuring: All utilities included gas, water, trash, and electricity Full kitchen with included appliances High ceilings for a bright, open feel Beautiful hardwood floors throughout Secure 16-unit building with controlled access Onsite laundry for added ease Pet-friendly up to 2 cats or 1 well-behaved dog (no excessive barking, please) Don't miss out on this limited-time offer! Contact us today to schedule a viewing and make this charming space your new home Housing provider pays for electricity, water, gas and trash",
-    "url": "https://www.zillow.com/apartments/los-angeles-ca/974-s-catalina-st/5XrCLc/#unit-460489187"
+    "url": "https://www.zillow.com/apartments/los-angeles-ca/974-s-catalina-st/5XrCLc/#unit-460489187",
+    "sqft": "500",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "454193339",
@@ -81,7 +99,10 @@
     "address": "1516-1526 S Hope St",
     "zipcode": "90015",
     "description": "",
-    "url": "https://www.zillow.com/apartments/los-angeles-ca/1516-1526-hope-st/ChVJwb/#unit-454193339"
+    "url": "https://www.zillow.com/apartments/los-angeles-ca/1516-1526-hope-st/ChVJwb/#unit-454193339",
+    "sqft": "400",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "64451624",
@@ -93,7 +114,10 @@
     "address": "17547 Electra Dr",
     "zipcode": "92395",
     "description": "Beautiful 3-Bedroom Home with Spacious Living Areas and 2 car garage Welcome home to this inviting 3-bedroom, 2-bathroom residence featuring a spacious floor plan and plenty of room to relax and entertain. Upon entering, you'll find a large living room highlighted by a cozy fireplace, creating a warm and welcoming space for gatherings or quiet evenings at home. Just beyond the living room is the family room and dining area, conveniently located next to the lovely kitchen. The kitchen offers an abundance of counter space and cabinetry, providing plenty of room for meal preparation and storage. Down the hallway are two generously sized bedrooms, a full bathroom and a laundry room with direct access to the 2- car garage. At the end of the hall, the spacious master bedroom offers a private retreat with its own bathroom featuring dual vanity sinks and a large walk-in closet. Step outside to a beautifully landscaped backyard filled with lush greenery, creating a peaceful and relaxing outdoor space. A covered patio provides the perfect spot for outdoor dining, entertaining, or enjoying the backyard year-round. This charming home offers the perfect combination of space, comfort, and outdoor living! This home has washer and dryer hookups in the laundry room. The home has the added benefit of being equipped with A/C to keep you comfortable. Tenant is responsible for all utilities: Water, Trash, Gas & Electric. This property is available to view by appointment, without an agent, via Tenant Turner. Once you answer the pre-screening questions through Tenant Turner and upload your ID, we will contact you to schedule an appointment for you to view the home. If the home is not ready for viewing, you will be added to a waitlist and will receive a text message as soon as it is available. Please do not visit the home without a scheduled appointment. Please do not call us to inquire about viewing the home if you have not followed these instructions.  All Mesa Properties residents are enrolled in the Resident Benefits Package (RBP) for an additional $39.95/month which includes renters insurance, HVAC air filter delivery (for applicable properties), credit building to help boost your credit score with timely rent payments, $1M Identity Protection, our best-in-class resident rewards program, and much more! More details upon application. This additional $39.95 fee is payable monthly on the first with rent. Total monthly cost is $2,295(rent amount) plus $39.95 monthly RBP for a total of $2,334.95 Listing by: Mesa Properties Inc.  12555-A Mariposa Rd. Victorville, CA 92395 DRE 01884617",
-    "url": "https://www.zillow.com/homedetails/17547-Electra-Dr-Victorville-CA-92395/64451624_zpid/"
+    "url": "https://www.zillow.com/homedetails/17547-Electra-Dr-Victorville-CA-92395/64451624_zpid/",
+    "sqft": "1582",
+    "homeType": "SINGLE_FAMILY",
+    "petFriendly": false
   },
   {
     "id": "463547892",
@@ -105,7 +129,10 @@
     "address": "1750 Arnold Way",
     "zipcode": "91901",
     "description": "At Creekside Meadows apartments in Alpine, CA, we want to provide our residents with an experience that will stick with them in life. Our residents enjoy some of the best community amenities available in apartment home living. Soak up the sun on the sundeck by the sparkling swimming pool, stay in shape in the fitness center, or get some work done at our business center and clubhouse, making your life a little more fun. Call us to schedule your tour today, and we can't wait to show you your new home!",
-    "url": "https://www.zillow.com/apartments/alpine-ca/creekside-meadows/5XkGDk/#unit-463547892"
+    "url": "https://www.zillow.com/apartments/alpine-ca/creekside-meadows/5XkGDk/#unit-463547892",
+    "sqft": "700",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "344763245",
@@ -117,7 +144,10 @@
     "address": "1950 Broadway",
     "zipcode": "94612",
     "description": "Explore the consciously designed studio, 1-, 2-, 3-, and 4-bedroom apartments at 1900 Broadway. Located in the heart of Oakland, this vibrant community places you within easy reach of the best of Oakland, Berkeley, and San Francisco. Each apartment home features top-of-the-line smart appliances, a Nest thermostat, Italian cabinetry, and more- designed to offer effortless comfort and modern style. Just minutes from UC Berkeley and other Bay Area campuses via the 19th Street BART station, 1900 Broadway also offers fully furnished co-living residences with individual bedrooms, Ori expandable furniture, and flexible lease terms starting at one month. With over 47,000 square feet of amenities, you'll find spaces to focus, unwind, and connect. Enjoy: - Private study rooms for focused work or group collaboration - A vault-style fitness center by MoveStrong - Social lounge with digital tap room - Media lounge with expansive city and bay views -Outdoor spa, BBQ, dining area, and sporting turf - Conference rooms for meetings and projects - Multiple sky decks with panoramic views - Bicycle storage and shared Tesla car fleet One building. Endless ways to live. 1900 Broadway is a space to learn, grow, and thrive, with places to create, connect, and recharge. Applicants must have a gross monthly income of at least 2.5 times the monthly rent.",
-    "url": "https://www.zillow.com/apartments/oakland-ca/1900-broadway/Ch7XFs/?r=97814#unit-344763245"
+    "url": "https://www.zillow.com/apartments/oakland-ca/1900-broadway/Ch7XFs/?r=97814#unit-344763245",
+    "sqft": "1187",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "461557779",
@@ -129,7 +159,10 @@
     "address": "1538 E Clinton Ave",
     "zipcode": "93704",
     "description": "New Affordable Apartments in Clovis, CA COMING SOON in 2024! Our interest list is forming now. Welcome to Clinton Ave Apartments, a brand-new affordable housing complex coming soon in 2024 in the heart of Fresno, CA! Please note, touring is not yet available as site is still under construction. Our community offers a wide range of affordable one-, two-, three-, and four-bedroom apartment homes with modern and spacious floor plans that are designed to fit your lifestyle. Our community amenities are perfect for connecting with other residents and include a courtyard, community room, fitness center, BBQ area, and playground just to name a few.With a prime location just minutes away from local restaurants, shopping centers, and entertainment venues, as well as easy access to major highways for convenient commuting, Clinton Ave Apartments is the perfect place to call home. We're committed to providing the best affordable housing options to individuals and families here in Fresno and invite you to join us and discover everything we have to offer. With our exceptional living experience, we hope to make your time with us memorable and everlasting.",
-    "url": "https://www.zillow.com/apartments/fresno-ca/clinton-avenue/9VDn7T/#unit-461557779"
+    "url": "https://www.zillow.com/apartments/fresno-ca/clinton-avenue/9VDn7T/#unit-461557779",
+    "sqft": "1017",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "447583307",
@@ -141,7 +174,10 @@
     "address": "245 W Loraine St",
     "zipcode": "91202",
     "description": "We offer Self-Guided Tours by Appointment Only. Nestled in Verdugo Viejo a welcoming residential niche of Glendale, CA, The Henley apartments combine a convenient location with modern style and inviting community amenities. Our recently reimagined community is comprised of residences that feature traditional layouts enhanced by modern finishes. Perfect for a variety of lifestyle needs, our one-, two-, and three-bedroom floor plans give you the flexibility to design your home to your exact specifications. Each apartment interior features wood-style flooring, designer kitchen cabinetry, quartz countertops, and stainless steel appliances. An in-unit washer and dryer add convenience. Wide windows and a neutral color palette combine to create an open feel, and tall sliding glass doors open to your private balcony, filling the home with natural light. Select townhome-style residences also enjoy lofty ceilings and dual-level living. Within our pet-friendly community, enjoy convenient community amenities including two pools, a fitness center, and clubhouse. When it's time to venture farther, our location close to SR 134 and I-5 makes getting around a breeze. Price reflected is base rent and does not include mandatory or optional fees. Detailed fee information and fee schedules can be found on the community's Leasing Info page on our Essex website.",
-    "url": "https://www.zillow.com/apartments/glendale-ca/the-henley/5XkKr6/?r=96321#unit-447583307"
+    "url": "https://www.zillow.com/apartments/glendale-ca/the-henley/5XkKr6/?r=96321#unit-447583307",
+    "sqft": "997",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "463783796",
@@ -153,7 +189,10 @@
     "address": "1000 Payton",
     "zipcode": "92620",
     "description": "Self-Guided Tours Only. Appointment Required.  Woodbury Court offers a charming village lifestyle with lush green open space, shaded paseos and Santa Barbara-style architecture. Enjoy smarter work days with ultra-high-speed internet plus convenient access to nearby shopping and dining. Rental rates, availability, lease terms, deposits, apartment features, amenities, and specials are subject to change without notice. Floor plans and square footages displayed are approximations, may be based on stud-to-stud measurements, and may vary between individual units. Quoted prices are for base rent only and do not include other fees such as application fee (one-time, $45), security deposit (one-time, refundable, amount varies), utility billing fee (not to exceed $5.55/month, Conservice), and utilities (monthly, cost varies). Deposits may fluctuate based on credit, rental history, income, and/or other qualifying standards. Residents are required to obtain and maintain renters insurance (certain exceptions apply). Pricing valid for new residents only, and may vary based on move-in date and lease term. Minimum lease terms and occupancy guidelines may apply. Leasing subject to credit approval, a satisfactory rental application and execution of a lease agreement.",
-    "url": "https://www.zillow.com/apartments/irvine-ca/woodbury-court-apartment-homes/5XjNkJ/#unit-463783796"
+    "url": "https://www.zillow.com/apartments/irvine-ca/woodbury-court-apartment-homes/5XjNkJ/#unit-463783796",
+    "sqft": "1060",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "2056194158",
@@ -165,7 +204,10 @@
     "address": "2769 Marengo St #1",
     "zipcode": "90033",
     "description": "NEW CONSTRUCTION! Modern and chic! Faux-wood floors throughout, all stainless steel appliances, fridge, stove, dishwasher, ALL INCLUDED! Washer and Dryer hookups inside! Well laid out and spacious. Central air conditioning and central heat. Includes 1 assigned parking space. Close to everything, gated and private! Comes with one assigned parking spot.",
-    "url": "https://www.zillow.com/homedetails/2769-Marengo-St-1-Los-Angeles-CA-90033/2056194158_zpid/"
+    "url": "https://www.zillow.com/homedetails/2769-Marengo-St-1-Los-Angeles-CA-90033/2056194158_zpid/",
+    "sqft": "691",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "2074101339",
@@ -177,7 +219,10 @@
     "address": "2619 Wilshire Blvd",
     "zipcode": "90057",
     "description": "Located in the beautiful Westlake area, Wilshire Royale is adorned with beautiful marble floors, gilded columns, and a welcoming outdoor courtyard equipped with a pool and spa. Featuring a 1920s atmosphere, our apartments offer newly restored luxurious floor plans and modern touches. THE APARTMENT AMENITIES- Beautiful High Rise Apartment- Get your Fitness on inside the Weight and Exercise Room- Enjoy a sunny day by the Pool- Valet Parking- Historic Lobby- On-Site Laundry- 2 Elevators for your convenienceTHE NEIGHBORHOOD PLACES TO BE- Big 6 Market just a short walk away- Treat yourself to a well-deserved spa day at Wi Spa right across the street- MacArthur Park is just a hop away- Everything you need at Target just down the street- Enjoy the LA scenery with Downtown and Koreatown with a variety of eateries and entertainment just moments away!",
-    "url": "https://www.zillow.com/apartments/los-angeles-ca/wilshire-royale/5XjQGd/?r=96038#unit-2074101339"
+    "url": "https://www.zillow.com/apartments/los-angeles-ca/wilshire-royale/5XjQGd/?r=96038#unit-2074101339",
+    "sqft": "825",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "455680765",
@@ -189,7 +234,10 @@
     "address": "326 S Reno St",
     "zipcode": "90057",
     "description": "A boutique multifamily building in Koreatown, offering studios, one-bedrooms, two-bedrooms, and one- and two-bedroom loft residences on a quiet, tree-lined block. The building features a mix of floor plans with thoughtful finishes and generous natural light. The loft layouts offer elevated ceilings and a distinctive vertical footprint that sets them apart from the standard flats. Residents enjoy convenient access to Koreatown's dining and retail, along with the 101 and 110 freeways and multiple Metro stops within walking distance. The Wilshire corridor, Wiltern, and the shops and cafes along 6th Street and Olympic are all nearby, with Downtown LA, Silver Lake, and Echo Park a short drive away. Floor plans, availability, and pricing vary. Contact us to schedule a tour and see current openings. Photos are representative of the building and unit types and may not depict the exact unit available. Finishes, layouts, and square footage vary by residence. The advertised rent may reflect the price net of concessions; gross rent, lease term, and any applicable concession structure will be disclosed in the lease agreement. All terms subject to availability, credit and income qualification, and owner approval.",
-    "url": "https://www.zillow.com/apartments/los-angeles-ca/reno-place/CkB3SQ/#unit-455680765"
+    "url": "https://www.zillow.com/apartments/los-angeles-ca/reno-place/CkB3SQ/#unit-455680765",
+    "sqft": "988",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "454249797",
@@ -201,7 +249,10 @@
     "address": "13326 Community Rd",
     "zipcode": "92064",
     "description": "",
-    "url": "https://www.zillow.com/apartments/poway-ca/mckenzie-casa-arguello/5XjKNN/#unit-454249797"
+    "url": "https://www.zillow.com/apartments/poway-ca/mckenzie-casa-arguello/5XjKNN/#unit-454249797",
+    "sqft": "800",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "2079198859",
@@ -213,7 +264,10 @@
     "address": "13385 Highlands Pl",
     "zipcode": "92130",
     "description": "Price shown is Base Rent. Residents are required to pay: At Application: Application Fee ($35.00/applicant, nonrefundable); Holding Deposit (Refundable) ($500.00/unit); At Move-in: Security Deposit (Refundable) ($700.0-$1000.0); Monthly: Sewer (usage-based); Pest Control (varies); Trash Services-CA (usage-based); Utility-Billing Admin Fee ($6.25/unit); Porter Service Rebill (usage-based); Electric-3rd Party (usage-based); Natural Gas-3rd Party (usage-based); Water (usage-based); Renters Liability Insurance-3rd Party (varies). Please visit the property website for a full list of all optional and situational fees. Floor plans are artist's rendering. All dimensions are approximate. Actual product and specifications may vary in dimension or detail. Not all features are available in every rental home. Please see a representative for details. Welcome to Sola at Pacific Highlands Ranch! Each Carmel Valley apartment offers spacious open-concept living and stunning design touches. Our community is also proud to be pet-friendly, offering a dog park and spa for your four-legged companions!The apartment homes at Sola are designed to radiate elegance, artistry, and poise. Spacious floor plans accompany unparalleled interior luxuries including gourmet kitchens, stainless steel appliances, designer bathrooms, and wood-style plank flooring.Greystar California, Inc. dba Greystar Corp. License No. 1525765 Broker: Gerard S. Donohue License No. 01265072",
-    "url": "https://www.zillow.com/apartments/san-diego-ca/sola-at-pacific-highlands-ranch/CkBdP4/#unit-2079198859"
+    "url": "https://www.zillow.com/apartments/san-diego-ca/sola-at-pacific-highlands-ranch/CkBdP4/#unit-2079198859",
+    "sqft": "1166",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "348603345",
@@ -225,7 +279,10 @@
     "address": "10700 Tabor St",
     "zipcode": "90034",
     "description": "*SPECIALS: RECEIVE UP TO 1 MONTH FREE RENT ON SELECT UNITS & $1K LOOK AND LEASE SPECIAL* Welcome to Arya, a beautiful collection of studio, one- and two-bedroom residences. Arya delivers thoughtfully designed living spaces that invites natural light to shine throughout. Property amenities include a top floor fitness center, co-working lounge, and an expansive rooftop lounge with an outdoor cooking area and BBQ's. Located in the Overland District, you'll be close to all the work and lifestyle opportunities that Downtown Culver City has to offer. Contact us today to schedule a tour! Parking available between $75 to $250/month depending on type, and for select units. Internet is $84/month, and residents are responsible for water and electricity utilities. 12 months available",
-    "url": "https://www.zillow.com/apartments/los-angeles-ca/arya/Ch7X4r/#unit-348603345"
+    "url": "https://www.zillow.com/apartments/los-angeles-ca/arya/Ch7X4r/#unit-348603345",
+    "sqft": "714",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "464030784",
@@ -237,7 +294,10 @@
     "address": "540-570 S Highland Dr",
     "zipcode": "92264",
     "description": "-1 MONTH FREE- *Studio *Murphy Bed Enclosure *Parking: 1 assigned parking per unit *Back Patio *Flooring: Linoleum / Vinyl and tile *On-site Laundry *Ceiling Fan *Pool Cats Allowed (2 animals Max), dogs allowed with NO additional security deposit and monthly pet rent. Give us a call for additional details. Term: 12 month lease *$250 Deposit Minimum & $500 office fee For information or to schedule a tour:",
-    "url": "https://www.zillow.com/apartments/palm-springs-ca/highland/Cm5Bqn/?r=46965#unit-464030784"
+    "url": "https://www.zillow.com/apartments/palm-springs-ca/highland/Cm5Bqn/?r=46965#unit-464030784",
+    "sqft": "1085",
+    "homeType": "APARTMENT",
+    "petFriendly": true
   },
   {
     "id": "2065692817",
@@ -249,7 +309,10 @@
     "address": "2775 Mesa Verde Dr E",
     "zipcode": "92626",
     "description": "27 Seventy Five Mesa Verde Apartment homes offer studios, one bedroom, two bedroom, and three bedroom apartments for rent in Costa Mesa, California. These Orange County apartments feature sleek open living spaces, contemporary lighting, luxurious baths, new windows highlighting breathtaking water views, and several unique touches. Our modern kitchens boast granite countertops, stainless steel appliances, islands, and premium shaker-style cabinets. Enjoy an energetic social scene at one of our many outdoor living lounges or relax and rejuvenate on a bench next to a refreshing water feature. Maybe you prefer to re-energize with yoga or spin class or just indulge your senses by one of five lavish pools. Whatever your desire, find it at one of the best-kept secrets in Costa Mesa - 27 Seventy Five. Visit today for a personalized, self-guided tour!",
-    "url": "https://www.zillow.com/apartments/costa-mesa-ca/27-seventy-five-mesa-verde/5XjQND/?r=96958#unit-2065692817"
+    "url": "https://www.zillow.com/apartments/costa-mesa-ca/27-seventy-five-mesa-verde/5XjQND/?r=96958#unit-2065692817",
+    "sqft": "1235",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   },
   {
     "id": "2059270640",
@@ -261,6 +324,9 @@
     "address": "901 E South St",
     "zipcode": "92805",
     "description": "Welcome to your new home in the heart of Anaheimwhere comfort, convenience, and community come together. Just minutes from world-class entertainment, shopping, and dining, our thoughtfully designed apartments offer the perfect blend of modern style and Southern California charm. Whether you're relaxing in our resort-style amenities, exploring nearby parks, or adventuring beyond Orange County, you'll love coming home to a vibrant, connected lifestyle. Discover spacious floor plans, premium finishes, and a place where every day feels like a getaway.",
-    "url": "https://www.zillow.com/apartments/anaheim-ca/citron-apartments/CkBDQC/#unit-2059270640"
+    "url": "https://www.zillow.com/apartments/anaheim-ca/citron-apartments/CkBDQC/#unit-2059270640",
+    "sqft": "747",
+    "homeType": "APARTMENT",
+    "petFriendly": false
   }
 ]
